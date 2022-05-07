@@ -1,5 +1,8 @@
 package com.casestudy.addToCart.Controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,17 +16,21 @@ import com.casestudy.addToCart.Services.AddToCartService;
 @RestController
 @RequestMapping("/offerzone/addToCart")
 public class AddToCartController {
+	
+	Logger logger = LoggerFactory.getLogger(AddToCartController.class);
 
 	@Autowired
 	AddToCartService addToCartService;
 	
 	@PostMapping("/add")
 	public void addToCart(@RequestBody Cart cart) {
+		logger.trace("Add to cart called");
 		addToCartService.addItemTOCartService(cart);
 	}
 	
 	@DeleteMapping("/remove")
 	public void removeFromCart(@RequestBody Cart cart) {
+		logger.trace("Remove from cart called");
 		addToCartService.removeItemFromCartService(cart);
 	}
 	
