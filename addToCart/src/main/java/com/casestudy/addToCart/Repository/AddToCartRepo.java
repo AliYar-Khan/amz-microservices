@@ -1,13 +1,15 @@
 
 package com.casestudy.addToCart.Repository;
 
+import java.math.BigInteger;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import com.casestudy.addToCart.Entity.Cart;
 
 @Repository
-public interface AddToCartRepo extends MongoRepository<Cart, Long> {
+public interface AddToCartRepo extends MongoRepository<Cart, BigInteger> {
 
 	@SuppressWarnings("unchecked")
 	Cart save(Cart cart);

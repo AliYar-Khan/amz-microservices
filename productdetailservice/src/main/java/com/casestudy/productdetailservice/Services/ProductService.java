@@ -1,5 +1,6 @@
 package com.casestudy.productdetailservice.Services;
 
+import java.math.BigInteger;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class ProductService {
 		return productRepo.save(product);
 	}
 	
-	public Product updateProduct(Product productUpdated, int id) {
+	public Product updateProduct(Product productUpdated, BigInteger id) {
 		return productRepo.findById(id)
 		.map(product -> {
 			product.setCompanyName(productUpdated.getCompanyName());
@@ -33,7 +34,7 @@ public class ProductService {
 	      });
 	}
 	
-	public void deleteById(int id) {
+	public void deleteById(BigInteger id) {
 		productRepo.deleteById(id);
 	}
 	

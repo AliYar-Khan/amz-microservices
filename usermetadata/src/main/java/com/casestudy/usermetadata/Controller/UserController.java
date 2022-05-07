@@ -1,6 +1,8 @@
 //handle all request from the frontend
 package com.casestudy.usermetadata.Controller;
 
+import java.math.BigInteger;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.casestudy.usermetadata.Entity.UserMetaData;
 import com.casestudy.usermetadata.Services.UserService;
+import com.casestudy.usermetadata.Services.UserServiceImpl;
 
 @RestController
 @RequestMapping("/offerzone/users/")
@@ -23,7 +26,7 @@ public class UserController {
 	Logger logger = LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
-	UserService userService;
+	UserServiceImpl userService;
 	
 	@SuppressWarnings("unused")
 	@Autowired
@@ -38,7 +41,7 @@ public class UserController {
 	}
 	
 	@PutMapping("/search/{userId}")
-	public UserMetaData updateUser() {
+	public UserMetaData updateUser(@PathVariable String userId) {
 		logger.trace("Updating user");
 		return userService.getUserDetailsFromDB(toString());		 
 	}
@@ -50,5 +53,20 @@ public class UserController {
     	UserMetaData user=userService.getUserDetailsFromDB(name);
 		return user;
 	}
+    
+    @PostMapping("signin")
+    public boolean sigin(@RequestBody UserMetaData login) {
+    	logger.trace("Signing in user");
+    	UserMetaData user = userService.findByUsername(login.getEmail(), login.getPassword());
+    	System.out.println(user);
+    	
+    	if (user != null) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    	
+    }	
 
 }

@@ -1,6 +1,9 @@
 package com.casestudy.productdetailservice.Entity;
 
+import java.math.BigInteger;
+
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -14,8 +17,9 @@ public class Product {
 //	public static final String SEQUENCE_SAVE = "product_sequence";
 //	
 	@Id
-	@GeneratedValue
-	public int productId;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@NotNull
+	public BigInteger productId;
 	
 	@NotNull
 	@NotBlank
@@ -42,7 +46,7 @@ public class Product {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Product(int productId, String companyName, String offerType, String desc, String imageURL, String validity) {
+	public Product(BigInteger productId, String companyName, String offerType, String desc, String imageURL, String validity) {
 		super();
 		this.productId = productId;
 		this.CompanyName = companyName;
@@ -52,11 +56,11 @@ public class Product {
 		this.validity = validity;
 	}
 
-	public int getproductId() {
+	public BigInteger getproductId() {
 		return productId;
 	}
 
-	public void setproductId(int productId) {
+	public void setproductId(BigInteger productId) {
 		this.productId = productId;
 	}
 
