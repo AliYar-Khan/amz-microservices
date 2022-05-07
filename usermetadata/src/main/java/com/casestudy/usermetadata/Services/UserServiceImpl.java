@@ -1,9 +1,12 @@
 package com.casestudy.usermetadata.Services;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -28,7 +31,7 @@ public class UserServiceImpl implements UserService{
 
 //  Retrieve the data from the database
     @Override
-    public ArrayList<UserMetaData> findAllByuniqueId(long id) {
+    public ArrayList<UserMetaData> findAllByuniqueId(BigInteger id) {
     	return (ArrayList<UserMetaData>) userRepo.findAll();
     }
 
@@ -36,7 +39,14 @@ public class UserServiceImpl implements UserService{
     public UserMetaData findByUsername(Sort name) {
 	    return (UserMetaData) userRepo.findAll(name);
 }
-
+    public UserMetaData findByUsername(String name, String password) {
+//    	Criteria criteria = new Criteria();
+//    	criteria.andOperator(Criteria.where("email").is(name),Criteria.where("password").is(password));
+//    	Query query = new Query(criteria);
+//
+//    	userRepo.find(query, UserMetaData.class, "userMetaData");
+    	return userRepo.findByEmailAndPassword(name,password);
+    }
 	public UserMetaData getUserDetailsFromDB(String name) {
 	    return (UserMetaData) userRepo.findAll();
 	}

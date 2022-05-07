@@ -1,6 +1,7 @@
 //responsible for controlling business logic of the API
 package com.casestudy.usermetadata.Services;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 import org.springframework.data.domain.Sort;
@@ -11,7 +12,7 @@ public interface UserService {
 
 	UserMetaData saveUserMetaDataTODB(UserMetaData userData);
 	
-	ArrayList<UserMetaData> findAllByuniqueId(long id);
+	ArrayList<UserMetaData> findAllByuniqueId(BigInteger id);
 
 	UserMetaData findByUsername(Sort name);
 

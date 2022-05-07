@@ -1,5 +1,6 @@
 package com.casestudy.productdetailservice.Controller;
 
+import java.math.BigInteger;
 import java.util.List;
 //import java.util.UUID;
 import org.slf4j.Logger;
@@ -43,13 +44,13 @@ public class ProductController {
 	}
 	
 	@PutMapping("/update/{productId}")
-	public Product updateProduct(@RequestBody Product product,@PathVariable int id) {
+	public Product updateProduct(@RequestBody Product product,@PathVariable BigInteger id) {
 		logger.trace("Updating the Product");
 		return productService.updateProduct(product,id);
 	}
 	
 	@DeleteMapping("/product/{id}")
-	void deleteProduct(@PathVariable int id) {
+	void deleteProduct(@PathVariable BigInteger id) {
 		logger.trace("Deleting the Product");
 		productService.deleteById(id);
 	}

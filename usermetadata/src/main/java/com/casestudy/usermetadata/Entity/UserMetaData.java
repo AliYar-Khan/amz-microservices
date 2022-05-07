@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.data.annotation.Transient;
@@ -19,11 +20,10 @@ public class UserMetaData {
 	@Transient
 	public static final String SEQUENCE_SAVE = "users_sequence";
 	
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-//	@Size(min=4,max=6)
-//	@NotBlank
-	private long id;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@NotNull
+	private BigInteger id;
 	
 	@NotEmpty
 	@NotBlank
@@ -36,7 +36,7 @@ public class UserMetaData {
 	
 	@NotEmpty
 	@NotBlank
-	private BigInteger phoneNo;
+	private String phoneNo;
 	
 	@NotEmpty
 	@NotBlank
@@ -46,7 +46,7 @@ public class UserMetaData {
 		super();
 	}
 
-	public UserMetaData(long id, String name, String email, BigInteger phoneNo, String password) {
+	public UserMetaData(BigInteger id, String name, String email, String phoneNo, String password) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -55,11 +55,11 @@ public class UserMetaData {
 		this.password = password;
 	}
 
-	public long getId() {
+	public BigInteger getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(BigInteger id) {
 		this.id = id;
 	}
 
@@ -79,11 +79,11 @@ public class UserMetaData {
 		this.email = email;
 	}
 
-	public BigInteger getPhoneNo() {
+	public String getPhoneNo() {
 		return phoneNo;
 	}
 
-	public void setPhoneNo(BigInteger phoneNo) {
+	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
 	}
 

@@ -1,37 +1,39 @@
 package com.casestudy.addToCart.Entity;
 
+import java.math.BigInteger;
+
 import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.GenerationType;
+import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotNull;
-
+//import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class Cart {
 
 	@Id
-	@GeneratedValue
-//	public long id;
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@NotNull
-	public long id;
+	public BigInteger id;
 	public int productId;
 		
 	public Cart() {
 		super();
 	}
 
-	public Cart(long id, int productId) {
+	public Cart(BigInteger id, int productId) {
 		super();
 		this.id = id;
 		this.productId = productId;
 	}
 
-	public long getId() {
+	public BigInteger getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(BigInteger id) {
 		this.id = id;
 	}
 
