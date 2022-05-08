@@ -23,7 +23,7 @@ public class Product {
 	
 	@NotNull
 	@NotBlank
-	public String CompanyName;
+	public String companyName;
 	
 	@NotNull
 	@NotBlank
@@ -49,7 +49,7 @@ public class Product {
 	public Product(BigInteger productId, String companyName, String offerType, String desc, String imageURL, String validity) {
 		super();
 		this.productId = productId;
-		this.CompanyName = companyName;
+		this.companyName = companyName;
 		this.offerType = offerType;
 		this.desc = desc;
 		this.imageURL = imageURL;
@@ -65,11 +65,11 @@ public class Product {
 	}
 
 	public String getCompanyName() {
-		return CompanyName;
+		return companyName;
 	}
 
 	public void setCompanyName(String companyName) {
-		CompanyName = companyName;
+		this.companyName = companyName;
 	}
 
 	public String getOfferType() {

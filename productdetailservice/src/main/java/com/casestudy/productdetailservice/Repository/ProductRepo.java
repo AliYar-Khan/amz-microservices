@@ -11,6 +11,7 @@ import com.casestudy.productdetailservice.Entity.Product;
 public interface ProductRepo extends MongoRepository<Product, BigInteger> {
 
 
+	Product findByCompanyName(String CompanyName);
 //	Product deleteById(Product product);
 
 }

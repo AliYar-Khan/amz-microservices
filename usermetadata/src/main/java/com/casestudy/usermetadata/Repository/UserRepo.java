@@ -13,4 +13,5 @@ public interface UserRepo extends MongoRepository<UserMetaData, BigInteger> {
 	
 //	@Query("{'$and':[ {'email':email}, {'password':pass} ] }")
     UserMetaData findByEmailAndPassword(String email, String password);
+    UserMetaData findByName(String name);
 }
