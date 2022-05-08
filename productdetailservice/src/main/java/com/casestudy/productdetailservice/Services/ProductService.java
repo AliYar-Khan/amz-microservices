@@ -18,7 +18,7 @@ public class ProductService {
 		return productRepo.save(product);
 	}
 	
-	public Product updateProduct(Product productUpdated, BigInteger id) {
+	public Product updateProduct(Product productUpdated, String id) {
 		return productRepo.findById(id)
 		.map(product -> {
 			product.setCompanyName(productUpdated.getCompanyName());
@@ -34,7 +34,7 @@ public class ProductService {
 	      });
 	}
 	
-	public void deleteById(BigInteger id) {
+	public void deleteById(String id) {
 		productRepo.deleteById(id);
 	}
 	

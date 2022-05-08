@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService{
 
 //  Retrieve the data from the database
     @Override
-    public ArrayList<UserMetaData> findAllByuniqueId(BigInteger id) {
+    public ArrayList<UserMetaData> findAllByuniqueId(String id) {
     	return (ArrayList<UserMetaData>) userRepo.findAll();
     }
 

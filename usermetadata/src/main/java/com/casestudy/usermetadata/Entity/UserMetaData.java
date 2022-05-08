@@ -23,7 +23,7 @@ public class UserMetaData {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@NotNull
-	private BigInteger id;
+	private String id;
 	
 	@NotEmpty
 	@NotBlank
@@ -46,7 +46,7 @@ public class UserMetaData {
 		super();
 	}
 
-	public UserMetaData(BigInteger id, String name, String email, String phoneNo, String password) {
+	public UserMetaData(String id, String name, String email, String phoneNo, String password) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -55,11 +55,11 @@ public class UserMetaData {
 		this.password = password;
 	}
 
-	public BigInteger getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(BigInteger id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.casestudy.productdetailservice.Entity.Product;
 
 @Repository
-public interface ProductRepo extends MongoRepository<Product, BigInteger> {
+public interface ProductRepo extends MongoRepository<Product, String> {
 
 
 	Product findByCompanyName(String CompanyName);

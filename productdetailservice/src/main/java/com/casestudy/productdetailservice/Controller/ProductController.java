@@ -44,13 +44,13 @@ public class ProductController {
 	}
 	
 	@PutMapping("/update/{productId}")
-	public Product updateProduct(@RequestBody Product product,@PathVariable BigInteger id) {
+	public Product updateProduct(@RequestBody Product product,@PathVariable String id) {
 		logger.trace("Updating the Product");
 		return productService.updateProduct(product,id);
 	}
 	
 	@DeleteMapping("/product/{id}")
-	void deleteProduct(@PathVariable BigInteger id) {
+	void deleteProduct(@PathVariable String id) {
 		logger.trace("Deleting the Product");
 		productService.deleteById(id);
 	}

@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import com.casestudy.usermetadata.Entity.UserMetaData;
 
 @EnableMongoRepositories
-public interface UserRepo extends MongoRepository<UserMetaData, BigInteger> {
+public interface UserRepo extends MongoRepository<UserMetaData, String> {
 	
 //	@Query("{'$and':[ {'email':email}, {'password':pass} ] }")
     UserMetaData findByEmailAndPassword(String email, String password);

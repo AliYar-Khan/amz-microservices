@@ -16,24 +16,24 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@NotNull
-	public BigInteger id;
+	public String id;
 	public int productId;
 		
 	public Cart() {
 		super();
 	}
 
-	public Cart(BigInteger id, int productId) {
+	public Cart(String id, int productId) {
 		super();
 		this.id = id;
 		this.productId = productId;
 	}
 
-	public BigInteger getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(BigInteger id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

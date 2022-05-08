@@ -12,7 +12,7 @@ public interface UserService {
 
 	UserMetaData saveUserMetaDataTODB(UserMetaData userData);
 	
-	ArrayList<UserMetaData> findAllByuniqueId(BigInteger id);
+	ArrayList<UserMetaData> findAllByuniqueId(String id);
 
 	UserMetaData findByUsername(Sort name);
 

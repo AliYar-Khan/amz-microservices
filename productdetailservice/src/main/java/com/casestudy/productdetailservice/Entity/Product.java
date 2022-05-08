@@ -19,7 +19,7 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@NotNull
-	public BigInteger productId;
+	public String productId;
 	
 	@NotNull
 	@NotBlank
@@ -46,7 +46,7 @@ public class Product {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Product(BigInteger productId, String companyName, String offerType, String desc, String imageURL, String validity) {
+	public Product(String productId, String companyName, String offerType, String desc, String imageURL, String validity) {
 		super();
 		this.productId = productId;
 		this.companyName = companyName;
@@ -56,11 +56,11 @@ public class Product {
 		this.validity = validity;
 	}
 
-	public BigInteger getproductId() {
+	public String getproductId() {
 		return productId;
 	}
 
-	public void setproductId(BigInteger productId) {
+	public void setproductId(String productId) {
 		this.productId = productId;
 	}
 

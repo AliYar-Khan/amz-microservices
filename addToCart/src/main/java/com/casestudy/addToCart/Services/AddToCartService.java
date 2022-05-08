@@ -15,8 +15,8 @@ public class AddToCartService {
 		addToCartRepo.save(cart);
 	}
 	
-    public void removeItemFromCartService(Cart cart) {
-    	addToCartRepo.delete(cart);
+    public void removeItemFromCartService(String id) {
+    	addToCartRepo.deleteById(id);
 	}
 
 //    public CartDetails displayAllProductsInCart(long id) {
