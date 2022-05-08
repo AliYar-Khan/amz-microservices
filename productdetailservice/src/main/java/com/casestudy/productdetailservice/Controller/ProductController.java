@@ -44,9 +44,9 @@ public class ProductController {
 	}
 	
 	@PutMapping("/update/{productId}")
-	public Product updateProduct(@RequestBody Product product,@PathVariable String id) {
+	public Product updateProduct(@RequestBody Product product,@PathVariable String productId) {
 		logger.trace("Updating the Product");
-		return productService.updateProduct(product,id);
+		return productService.updateProduct(product,productId);
 	}
 	
 	@DeleteMapping("/product/{id}")

@@ -43,7 +43,7 @@ public class UserController {
 	@PutMapping("/search/{userId}")
 	public UserMetaData updateUser(@PathVariable String userId) {
 		logger.trace("Updating user");
-		return userService.getUserDetailsFromDB(toString());		 
+		return userService.getUserDetailsFromDB(userId);		 
 	}
 	
 //  getEndPoint is used to fetch data from backend to frontend
