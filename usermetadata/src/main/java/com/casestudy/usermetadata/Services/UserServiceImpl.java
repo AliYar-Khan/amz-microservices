@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService{
     	return userRepo.findByEmailAndPassword(name,password);
     }
 	public UserMetaData getUserDetailsFromDB(String name) {
-	    return (UserMetaData) userRepo.findAll();
+	    return userRepo.findByName(name);
 	}
 
 //UserMetaData findByUsername(String name);
